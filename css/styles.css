@@ -1,128 +1,141 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  html {
-    font-size: 16px;
-  }
-  
-  html,
-  body {
-    overflow-x: hidden;
-  }
-  
-  body {
-    background-color: #141414;
-    color: white;
-    font-family: "Plus Jakarta Sans", sans-serif;
-  }
-  
-  nav {
-    display: flex;
-    width: auto;
-    justify-content: space-between;
-    padding: 40px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    align-items: center;
-  }
-  
-  nav .nav-content {
-    display: flex;
-    list-style: none;
-    gap: 40px;
-    align-items: center;
-    font-size: 18px;
-  }
-  
-  .hero {
-    position: relative;
-    background-image: url(../assets/images/background-graphics.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
-  }
-  
-  .grain-overlay {
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-      align-content: center;
-      background-image: url(../assets/images/grain-overlay.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      mix-blend-mode: difference;
-      opacity: 0;
-      z-index: 1;
-      pointer-events: none;
-  }
-  
-  .shine-overlay {
-    position: absolute;
-      width: 100vw;
-      height: 100vh;
-      align-content: center;
-      background-image: url(../assets/images/shine-overlay.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      mix-blend-mode:saturation;
-      opacity: 0.2;
-      z-index: 1;
-      pointer-events: none;
-  }
-  
-  .content {
-      position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 0;
-    height: 100%;
-    z-index: 2;
-  }
-  
-  .big-header {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 11.6vw;
-    font-weight: 600;
-  }
-  
-  .big-header div {
-    margin: 0;
-    line-height: 1;
-  }
-  
-  .big-header .hello-header {
-    display: flex;
-  }
-  
-  .big-header .less-gap {
-    letter-spacing: -0.1em;
-  }
-  
-  .big-header .comma {
-    letter-spacing: -0.06em;
-  }
-  
-  .role {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    gap: 0.5em;
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #141414;
+  color: white;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+nav {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+  padding: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  align-items: center;
+}
+
+nav .nav-content {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  align-items: center;
+  font-size: 18px;
+}
+
+.hero {
+  position: relative;
+  background-image: url(../assets/images/background-graphics-2.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+.grain-overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  align-content: center;
+  background-image: url(../assets/images/grain-overlay.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  mix-blend-mode: difference;
+  opacity: 0.5;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.crt-overlay {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.4;
+  mix-blend-mode:soft-light;
+}
+
+.shine-overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  align-content: center;
+  background-image: url(../assets/images/shine-overlay.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  mix-blend-mode: saturation;
+  opacity: 0.2;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+  height: 100%;
+  z-index: 4;
+}
+
+.big-header {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 11.6vw;
+  font-weight: 600;
+}
+
+.text-container {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  height: 1.1em;
+}
+
+.text {
+  display: flex;
+  position: relative;
+  transform: translateY(2em);
+}
+
+
+.big-header .less-gap {
+  letter-spacing: -0.1em;
+}
+
+.big-header .comma {
+  letter-spacing: -0.1em;
+}
+
+.role {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  gap: 0.8em;
+}
