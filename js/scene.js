@@ -12,7 +12,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
 // 🔥 Append renderer to `.crt-overlay`, NOT `body`
-const crtOverlay = document.querySelector('.crt-overlay');
+const crtOverlay = document.querySelector('.crt');
 crtOverlay.appendChild(renderer.domElement);
 
 const scanlineShader = new THREE.ShaderMaterial({
@@ -20,7 +20,8 @@ const scanlineShader = new THREE.ShaderMaterial({
         time: { value: 0.0 },
         resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
         opacity: { value: 1 }, // Adjust opacity of scanlines
-        lineSpacing: { value: 8.0 } // Distance between lines
+        lineSpacing: { value: 8.0 }, // Distance between lines
+        lineColor: { value: new THREE.Color(0xff0000) } // Red color (Hex)
     },
     vertexShader: `
         varying vec2 vUv;
@@ -35,15 +36,19 @@ const scanlineShader = new THREE.ShaderMaterial({
         uniform float opacity;
         uniform float lineSpacing;
         varying vec2 vUv;
+         uniform vec3 lineColor;
 
         void main() {
             float line = mod(vUv.y * resolution.y + time * 40.0, lineSpacing);
             float intensity = smoothstep(0.8, 1.0, line); // Sharp edges
-            gl_FragColor = vec4(vec3(1.0), intensity * opacity);
+            gl_FragColor = vec4(lineColor, intensity * opacity);
         }
     `,
     transparent: true
 });
+
+scanlineShader.uniforms.lineColor.value.setHex(0xFFFFFF); // Change to Green (RGB)
+
 
 // Fullscreen plane
 const geometry = new THREE.PlaneGeometry(2, 2);
@@ -52,7 +57,7 @@ scene.add(mesh);
 
 // Animation loop
 function animate() {
-    scanlineShader.uniforms.time.value += 0.01;
+    scanlineShader.uniforms.time.value += 0.015;
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
 }
